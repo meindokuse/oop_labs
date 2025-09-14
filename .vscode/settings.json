@@ -1,0 +1,7 @@
+{
+    "cmake.sourceDirectory": "D:/oop_labs/first",
+    "files.associations": {
+        "string": "cpp",
+        "iostream": "cpp"
+    }
+}
