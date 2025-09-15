@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/run_tests.dir/src/vowel_utils.cpp.obj"
-  "CMakeFiles/run_tests.dir/src/vowel_utils.cpp.obj.d"
-  "CMakeFiles/run_tests.dir/tests/test_vowel_remover.cpp.obj"
-  "CMakeFiles/run_tests.dir/tests/test_vowel_remover.cpp.obj.d"
-  "librun_tests.dll.a"
-  "run_tests.exe"
-  "run_tests.exe.manifest"
+  "CMakeFiles/run_tests.dir/src/vowel_utils.cpp.o"
+  "CMakeFiles/run_tests.dir/src/vowel_utils.cpp.o.d"
+  "CMakeFiles/run_tests.dir/tests/test_vowel_remover.cpp.o"
+  "CMakeFiles/run_tests.dir/tests/test_vowel_remover.cpp.o.d"
+  "run_tests"
   "run_tests.pdb"
 )
 

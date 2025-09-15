@@ -1,6 +1,9 @@
 #include "vowel_utils.h"
 #include <iostream>
 #include <string>
+#include <vector>
+
+// #include <bits/stdc++.h>
 
 int main() {
     std::string text;

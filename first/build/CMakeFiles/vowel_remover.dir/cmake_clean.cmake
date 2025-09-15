@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/vowel_remover.dir/src/main.cpp.obj"
-  "CMakeFiles/vowel_remover.dir/src/main.cpp.obj.d"
-  "CMakeFiles/vowel_remover.dir/src/vowel_utils.cpp.obj"
-  "CMakeFiles/vowel_remover.dir/src/vowel_utils.cpp.obj.d"
-  "libvowel_remover.dll.a"
-  "vowel_remover.exe"
-  "vowel_remover.exe.manifest"
+  "CMakeFiles/vowel_remover.dir/src/main.cpp.o"
+  "CMakeFiles/vowel_remover.dir/src/main.cpp.o.d"
+  "CMakeFiles/vowel_remover.dir/src/vowel_utils.cpp.o"
+  "CMakeFiles/vowel_remover.dir/src/vowel_utils.cpp.o.d"
+  "vowel_remover"
   "vowel_remover.pdb"
 )
 

@@ -2,6 +2,7 @@
 #include <cctype>
 
 bool is_vowel(char c) {
+    setlocale(LC_ALL, "Russian");
     char lower_c = std::tolower(c);
     
     switch (lower_c) {
