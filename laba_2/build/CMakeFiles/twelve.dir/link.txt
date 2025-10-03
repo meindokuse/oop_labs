@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 CMakeFiles/twelve.dir/src/main.cpp.o -o twelve  libtwelve_lib.a 

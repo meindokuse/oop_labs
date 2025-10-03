@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 CMakeFiles/test_twelve.dir/test/test_twelve.cpp.o CMakeFiles/test_twelve.dir/test/main.cpp.o -o test_twelve  libtwelve_lib.a lib/libgtest_main.a lib/libgtest.a 

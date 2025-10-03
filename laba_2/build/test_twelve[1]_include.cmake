@@ -1,0 +1,5 @@
+if(EXISTS "/home/meindokuse/oop_labs/laba_2/build/test_twelve[1]_tests.cmake")
+  include("/home/meindokuse/oop_labs/laba_2/build/test_twelve[1]_tests.cmake")
+else()
+  add_test(test_twelve_NOT_BUILT test_twelve_NOT_BUILT)
+endif()

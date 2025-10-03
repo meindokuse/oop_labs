@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtwelve_lib.a CMakeFiles/twelve_lib.dir/src/custom_vector.cpp.o CMakeFiles/twelve_lib.dir/src/twelve.cpp.o
+/usr/bin/ranlib libtwelve_lib.a
