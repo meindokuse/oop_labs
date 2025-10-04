@@ -11,13 +11,13 @@ Twelve::Twelve(const size_t &n, unsigned char t) : digits(n, t) {
 }
 
 Twelve::Twelve(const std::initializer_list<unsigned char>& t) : digits(t.size(), 0) {
-    size_t i = t.size() - 1;
+    size_t i = 0;  
     for (auto it : t) {
         if (it >= 12) {
             throw std::invalid_argument("Digit must be 0-11");
         }
-        digits.set(i, it);
-        --i;
+        digits.set(i, it);  
+        ++i;
     }
 }
 
@@ -51,7 +51,7 @@ Twelve::Twelve(const std::string &t) : digits(1, 0) {
             throw std::invalid_argument("Invalid character");
         }
         
-        digits.set(strSize - i - 1, value);
+        digits.set(i, value);  
     }
 }
 
@@ -79,22 +79,24 @@ Twelve Twelve::add(const Twelve& a, const Twelve& b) {
     }
     
     int carry = 0;
-    for (size_t i = 0; i < maxSize; ++i) {
-        int digit_a = (i < a.digits.len()) ? a.digits.get(i) : 0;
-        int digit_b = (i < b.digits.len()) ? b.digits.get(i) : 0;
+    for (int i = maxSize - 1; i >= 0; --i) {
+        int a_index = i - (maxSize - a.digits.len());
+        int b_index = i - (maxSize - b.digits.len());
+        
+        int digit_a = (a_index >= 0) ? a.digits.get(a_index) : 0;
+        int digit_b = (b_index >= 0) ? b.digits.get(b_index) : 0;
         
         int sum = digit_a + digit_b + carry;
-        result.digits.set(i, sum % 12);
+        result.digits.set(i + 1, sum % 12); 
         carry = sum / 12;
     }
     
     if (carry > 0) {
-        result.digits.set(maxSize, carry);
+        result.digits.set(0, carry);
     } else {
-        result.digits.pop();
-    }
-    
-    while (result.digits.len() > 1 && result.digits.get(result.digits.len() - 1) == 0) {
+        for (size_t i = 0; i < result.digits.len() - 1; ++i) {
+            result.digits.set(i, result.digits.get(i + 1));
+        }
         result.digits.pop();
     }
     
@@ -114,9 +116,11 @@ Twelve Twelve::substract(const Twelve& a, const Twelve& b) {
     }
     
     int borrow = 0;
-    for (size_t i = 0; i < result.digits.len(); ++i) {
+    for (int i = result.digits.len() - 1; i >= 0; --i) {
         int digit_a = result.digits.get(i);
-        int digit_b = (i < b.digits.len()) ? b.digits.get(i) : 0;
+        
+        int b_index = i - (a.digits.len() - b.digits.len());
+        int digit_b = (b_index >= 0 && b_index < (int)b.digits.len()) ? b.digits.get(b_index) : 0;
         
         int diff = digit_a - digit_b - borrow;
         
@@ -130,7 +134,10 @@ Twelve Twelve::substract(const Twelve& a, const Twelve& b) {
         result.digits.set(i, diff);
     }
     
-    while (result.digits.len() > 1 && result.digits.get(result.digits.len() - 1) == 0) {
+    while (result.digits.len() > 1 && result.digits.get(0) == 0) {
+        for (size_t i = 0; i < result.digits.len() - 1; ++i) {
+            result.digits.set(i, result.digits.get(i + 1));
+        }
         result.digits.pop();
     }
     
@@ -141,7 +148,7 @@ int Twelve::compareAbsolute(const Twelve& a, const Twelve& b) {
     if (a.digits.len() > b.digits.len()) return 1;
     if (a.digits.len() < b.digits.len()) return -1;
     
-    for (int i = a.digits.len() - 1; i >= 0; --i) {
+    for (size_t i = 0; i < a.digits.len(); ++i) {
         if (a.digits.get(i) > b.digits.get(i)) return 1;
         if (a.digits.get(i) < b.digits.get(i)) return -1;
     }
@@ -167,7 +174,7 @@ std::string Twelve::toString(const Twelve& num) {
     }
     
     std::string result;
-    for (int i = num.digits.len() - 1; i >= 0; --i) {
+    for (size_t i = 0; i < num.digits.len(); ++i) {
         unsigned char digit = num.digits.get(i);
         if (digit < 10) {
             result += ('0' + digit);
