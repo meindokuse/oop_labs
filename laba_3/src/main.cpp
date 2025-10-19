@@ -1,8 +1,9 @@
-#include <iostream>
 #include "Triangle.hpp"
 #include "Hexagon.hpp"
 #include "Octagon.hpp"
 #include "FigureVector.hpp"
+
+#include <iostream>
 
 void printMenu() {
     std::cout << "\n=== Система управления фигурами ===" << std::endl;

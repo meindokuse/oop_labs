@@ -1,7 +1,6 @@
 #pragma once
+
 #include <iostream>
-#include <cmath>
-#include <vector>
 #include <utility>
 
 class Figure {
@@ -19,8 +18,6 @@ public:
     virtual Figure* clone() const = 0;
     virtual bool operator==(const Figure& other) const = 0;
     
-    friend std::ostream& operator<<(std::ostream& os, const Figure& fig);
-    friend std::istream& operator>>(std::istream& is, Figure& fig);
 };
 
 inline std::ostream& operator<<(std::ostream& os, const Figure& fig) {

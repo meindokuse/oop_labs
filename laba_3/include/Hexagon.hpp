@@ -1,10 +1,15 @@
 #pragma once
+
 #include "Figure.hpp"
+
+#include <vector> 
+#include <utility>
 
 class Hexagon : public Figure {
 private:
     double radius;
     std::pair<double, double> center;
+    std::vector<std::pair<double, double>> calculateVertices() const;
 
 public:
     Hexagon();
@@ -22,6 +27,5 @@ public:
     Hexagon& operator=(const Hexagon& other);
     Hexagon& operator=(Hexagon&& other) noexcept;
     
-private:
-    std::vector<std::pair<double, double>> calculateVertices() const;
+
 };

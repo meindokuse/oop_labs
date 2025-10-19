@@ -3,6 +3,7 @@
 #include "Hexagon.hpp"
 #include "Octagon.hpp"
 #include "FigureVector.hpp"
+#include <cmath>
 
 TEST(TriangleTest, ConstructorAndGetters) {
     Triangle t(5.0, 1.0, 2.0);

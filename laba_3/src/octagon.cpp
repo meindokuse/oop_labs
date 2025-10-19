@@ -1,4 +1,5 @@
 #include "Octagon.hpp"
+
 #include <cmath>
 #include <iostream>
 

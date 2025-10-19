@@ -1,4 +1,5 @@
 #include "Hexagon.hpp"
+
 #include <cmath>
 #include <iostream>
 
